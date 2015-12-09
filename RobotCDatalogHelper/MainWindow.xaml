@@ -6,7 +6,129 @@
         xmlns:local="clr-namespace:RobotCDatalogHelper"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
-    <Grid>
-        
-    </Grid>
+  <Grid>
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="Auto" />
+      <RowDefinition Height="1*" />
+      <RowDefinition Height="Auto" />
+    </Grid.RowDefinitions>
+    <Menu>
+      <MenuItem Header="File">
+        <MenuItem Header="Open..." />
+        <MenuItem Header="Save" />
+        <MenuItem Header="Save as..." />
+        <Separator />
+        <MenuItem Header="Quit" />
+      </MenuItem>
+      <MenuItem Header="Schema">
+        <MenuItem Header="Build Header" />
+        <MenuItem Header="Build Header to..." />
+      </MenuItem>
+      <MenuItem Header="Data">
+        <MenuItem Header="Import CSV..." />
+        <MenuItem IsEnabled="False" Header="Export CSV..." />
+      </MenuItem>
+    </Menu>
+    <ToolBar Grid.Row="1">
+      <Button>Open</Button>
+      <Button>Save</Button>
+    </ToolBar>
+    <TabControl Grid.Row="2">
+      <TabItem Header="Edit">
+        <Grid Margin="1">
+          <Grid.RowDefinitions>
+            <RowDefinition Height="1*" />
+            <RowDefinition Height="Auto" />
+          </Grid.RowDefinitions>
+          <ListBox Margin="1">
+            <ListBox.Items>
+              <ListBoxItem HorizontalContentAlignment="Stretch">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <TextBlock>Item!</TextBlock>
+                  <Button Grid.Column="1">Remove</Button>
+                </Grid>
+              </ListBoxItem>
+              <ListBoxItem HorizontalContentAlignment="Stretch">
+                <Grid>
+                  <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="Auto" />
+                  </Grid.ColumnDefinitions>
+                  <TextBox />
+                  <Button Grid.Column="1">Add</Button>
+                </Grid>
+              </ListBoxItem>
+            </ListBox.Items>
+          </ListBox>
+        </Grid>
+      </TabItem>
+      <TabItem Header="Decode">
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="1*" />
+          </Grid.RowDefinitions>
+          <Grid Grid.Row="0"
+                Margin="2">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="1*" />
+              <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button>Import CSV...</Button>
+            <Button IsEnabled="False" Grid.Column="1">Export CSV...</Button>
+          </Grid>
+          <Grid Grid.Row="1">
+            <Grid.ColumnDefinitions>
+              <ColumnDefinition Width="1*" />
+              <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+            <DataGrid>
+              <DataGrid.Columns>
+                <DataGridTextColumn>
+                  <DataGridTextColumn.Header>
+                    <DataGridColumnHeader>Time</DataGridColumnHeader>
+                  </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn>
+                  <DataGridTextColumn.Header>
+                    <DataGridColumnHeader>Col A</DataGridColumnHeader>
+                  </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+            <DataGrid Grid.Column="1">
+              <DataGrid.Columns>
+                <DataGridTextColumn>
+                  <DataGridTextColumn.Header>
+                    <DataGridColumnHeader>Time</DataGridColumnHeader>
+                  </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+                <DataGridTextColumn>
+                  <DataGridTextColumn.Header>
+                    <DataGridColumnHeader>Col A</DataGridColumnHeader>
+                  </DataGridTextColumn.Header>
+                </DataGridTextColumn>
+              </DataGrid.Columns>
+            </DataGrid>
+          </Grid>
+        </Grid>
+      </TabItem>
+      <TabItem Header="Config">
+        <StackPanel>
+          <Label>Header build path:</Label>
+          <TextBox></TextBox>
+          <Label>CSV export path:</Label>
+          <TextBox></TextBox>
+        </StackPanel>
+      </TabItem>
+    </TabControl>
+    <StatusBar Grid.Row="3">
+      <StatusBarItem>Ready</StatusBarItem>
+    </StatusBar>
+  </Grid>
 </Window>
